@@ -14,27 +14,27 @@ private:
     class iterator
     {
     private:
-        T *iterator_temp;
+        T iterator_temp;
 
     public:
-        iterator(T *iterator_temp = nullptr) : iterator_temp(iterator_temp) {}
+        iterator(T iterator_temp) : iterator_temp(iterator_temp) {}
 
-        T &operator*() const
+        T operator*() const
         {
-            return *iterator_temp;
+            return iterator_temp;
         }
         iterator &operator++()
         {
-            (*iterator_temp)++;
+            ++iterator_temp;
             return *this;
         }
         bool operator==(const iterator &other) const
         {
-            return *this->iterator_temp == *other.iterator_temp;
+            return this->iterator_temp == other.iterator_temp;
         }
         bool operator!=(const iterator &other)
         {
-            return *this->iterator_temp != *other.iterator_temp;
+            return this->iterator_temp != other.iterator_temp;
         }
     };
 
@@ -48,13 +48,13 @@ public:
         this->_begin = other._begin;
         this->_end = other._end;
     }
-    iterator begin()
+    iterator begin() const
     {
-        return iterator{&_begin};
+        return iterator(_begin);
     }
-    iterator end()
+    iterator end() const
     {
-        return iterator{&_end};
+        return iterator(_end);
     }
 };
 
