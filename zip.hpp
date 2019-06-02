@@ -23,10 +23,10 @@ public:
     private:
         it_0 iterator_0;
         it_1 iterator_1;
-        bool Switch;
+       
 
     public:
-        iterator(it_0 first, it_1 second) : iterator_0(first), iterator_1(second), Switch(true)
+        iterator(it_0 first, it_1 second) : iterator_0(first), iterator_1(second)
         {
         }
 
